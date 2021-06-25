@@ -1,0 +1,12 @@
+[submodule "ds-logging"]
+	path = ds-logging
+	url = https://github.com/alexart721/ds-logging.git
+[submodule "ds-auth"]
+	path = ds-auth
+	url = https://github.com/alexart721/ds-auth.git
+[submodule "ds-webserver"]
+	path = ds-webserver
+	url = https://github.com/alexart721/ds-webserver.git
+[submodule "ds-client"]
+	path = ds-client
+	url = https://github.com/alexart721/ds-client.git
