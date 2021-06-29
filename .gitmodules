@@ -10,6 +10,3 @@
 [submodule "ds-client"]
 	path = ds-client
 	url = https://github.com/alexart721/ds-client.git
-[submodule "ds-client-public"]
-	path = ds-client-public
-	url = https://github.com/alexart721/ds-client-public.git
