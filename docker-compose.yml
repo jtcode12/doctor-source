@@ -1,0 +1,32 @@
+version: '3.18'
+services:
+  auth:
+    build: ./ds-auth/
+    env_file:
+      - ./ds-auth/.env
+    ports: 
+      - 4002:4002
+    depends_on:
+      - redis
+  redis:
+    image: redis:6.2.4
+    ports:
+      - 6379
+  server:
+    build: ./ds-webserver/
+    env_file:
+      - ./ds-webserver/.env
+    ports:
+      - 4000:4000
+    depends_on:
+      - auth
+      - redis
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - auth
+      - server
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
