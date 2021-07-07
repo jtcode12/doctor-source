@@ -21,11 +21,27 @@ services:
     depends_on:
       - auth
       - redis
+  client:
+    build: ./ds-client
+    ports:
+      - 3001:3001
+    depends_on:
+      - auth
+      - server
+  client_public:
+    build: ./ds-client-public
+    ports:
+      - 3000:3000
+    depends_on:
+      - auth
+      - server
   nginx:
     image: nginx:latest
     depends_on:
       - auth
       - server
+      - client
+      - client_public
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
