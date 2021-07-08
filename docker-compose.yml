@@ -25,6 +25,7 @@ services:
     build: ./ds-client
     ports:
       - 3001:3001
+    env_file: './ds-client/.env'
     depends_on:
       - auth
       - server
